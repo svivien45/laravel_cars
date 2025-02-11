@@ -6,5 +6,4 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
-<?php endif; ?>
-<?php /**PATH C:\xampp\htdocs\laravel_cars\resources\views/error.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH C:\xampp\htdocs\laravel_cars\resources\views/error.blade.php ENDPATH**/ ?>

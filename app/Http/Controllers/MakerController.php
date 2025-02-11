@@ -49,7 +49,8 @@ class MakerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $maker = Maker::find($id);
+        return view('makers.edit', compact('maker'));
     }
 
     /**
@@ -57,7 +58,11 @@ class MakerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $maker  = Maker::find($id);
+        $maker->name = $request->input('name');
+        $maker->save();
+
+        return redirect()->route('makers.index')->with('success', "{$maker->name} sikeresen módosítva");
     }
 
     /**
@@ -65,6 +70,10 @@ class MakerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $maker = Maker::find($id);
+        if ($maker) {
+            $maker->delete();
+            return redirect()->route('makers.index')->with('success', "Sikeresen törölve");
+        }
     }
 }

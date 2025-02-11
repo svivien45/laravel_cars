@@ -28,7 +28,7 @@ class BodySeeder extends Seeder
     {
         foreach (self::ITEMS as $item) {
             $body = new Body();
-	    $body->name = $item;
+	        $body->name = $item;
             $body->save();
         }
     }
