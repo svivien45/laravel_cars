@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MakerRequest;
 use Illuminate\Http\Request;
 use App\Models\Maker;
 
@@ -27,7 +28,7 @@ class MakerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MakerRequest $request)
     {
         $maker  = new Maker();
         $maker->name = $request->input('name');
@@ -56,7 +57,7 @@ class MakerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MakerRequest $request, string $id)
     {
         $maker  = Maker::find($id);
         $maker->name = $request->input('name');
