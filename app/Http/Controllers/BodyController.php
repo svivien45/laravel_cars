@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BodyRequest;
 use Illuminate\Http\Request;
 use App\Models\Body;
 
@@ -27,7 +28,7 @@ class BodyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BodyRequest $request)
     {
         $body  = new Body();
         $body->name = $request->input('name');
@@ -57,7 +58,7 @@ class BodyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BodyRequest $request, string $id)
     {
         $body  = Body::find($id);
         $body->name = $request->input('name');
