@@ -9,3 +9,4 @@ Route::get('/', function () {
 });
 Route::resource('makers', MakerController::class);
 Route::resource('bodies', BodyController::class);
+Route::get('/makers/{maker}/fetch-models', [MakerController::class, 'fetchModels'])->name('makers.fetch.models');
