@@ -20,6 +20,9 @@
             <nav>
                 <ul>
                 <li><a href="<?php echo e(route('makers.index')); ?>">Gyártók</a></li>
+                <li><a href="<?php echo e(route('bodies.index')); ?>">Karosszériák</a></li>
+                <li><a href="<?php echo e(route('models.index')); ?>">Modellek</a></li>
+                <li><a href="<?php echo e(route('vehicles.index')); ?>">Járművek</a></li>
                     <!-- Login: csak ha sikerült feltenni a breeze csomagot -->
 
                 </ul>

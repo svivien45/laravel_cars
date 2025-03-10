@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-<h1>Gyártók</h1>
+<h1>Modellek</h1>
 <div>
-    <a href="{{ route('makers.create') }}">
+    <a href="{{ route('models.create') }}">
         <button><i class="fa fa-new" title="Új"></i> Új</button>
     </a>
 </div>
@@ -17,18 +17,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($makers as $maker)
+        @foreach($models as $model)
             <tr class="{{ $loop->iteration % 2 == 0 ? 'even' : 'odd' }}">
-                <td style="border: 1px solid black;">{{ $maker->id }}</td>
-                <td style="border: 1px solid black;">{{ $maker->name }}</td>
+                <td style="border: 1px solid black;">{{ $model->id }}</td>
+                <td style="border: 1px solid black;">{{ $model->name }}</td>
                 <td style="display: flex; gap: 10px; justify-content: center; border: 1px solid black;">
-                    <a href="{{ route('makers.show', $maker->id) }}">
+                    <a href="{{ route('models.show', $model->id) }}">
                         <button><i class="fa fa-binoculars" title="Mutat"></i> Mutat</button>
                     </a>
-                    <a href="{{ route('makers.edit', $maker->id) }}">
+                    <a href="{{ route('models.edit', $model->id) }}">
                         <button><i class="fa fa-edit edit" title="Módosít"></i> Módosít</button>
                     </a>
-                    <form action="{{ route('makers.destroy', $maker->id) }}" method="POST">
+                    <form action="{{ route('models.destroy', $model->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" name="btn-del-fuel">
