@@ -1,42 +1,44 @@
-
 <!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autók</title>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}" >
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatile" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scales=1.0">
+        <title>Osztály Napló</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('style.css')}}">
+    </head>
 
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
-</head>
-
-<body>
-    <header>
+    <body>
+        <header>
             <nav>
                 <ul>
-                <li><a href="{{ route('makers.index') }}">Gyártók</a></li>
-                <li><a href="{{ route('bodies.index') }}">Karosszériák</a></li>
-                <li><a href="{{ route('models.index') }}">Modellek</a></li>
-                <li><a href="{{ route('vehicles.index') }}">Járművek</a></li>
-                    <!-- Login: csak ha sikerült feltenni a breeze csomagot -->
-
+                    <li><a href="{{route('students.index')}}">Tanulók</a></li>
+                    <li><a href="{{route('school_classes.index')}}">Osztályok</a></li>
+                    <li><a href="{{route('subjects.index')}}">Tantárgyak</a></li>
+                    <li><a href="{{route('marks.index')}}">Jegyek</a></li>
+                    @if(auth()->check())
+                    <li>
+                        <form class="logout" action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit">Kijelentkezés</button>
+                        </form>
+                    </li>
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                    @endif
                 </ul>
             </nav>
-         </header>
-    <main>
-	<!-- ide fogja behúzni a view-kat -->
-        @yield('content')
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Savanyú Vivien</p>
-    </footer>
-
-</body>
-
+        </header>
+        <main>
+            @yield('content')
+        </main>
+        <footer>
+            <p>@ Savanyú Vivien</p>
+        </footer>
+    </body>
 </html>
+
+
